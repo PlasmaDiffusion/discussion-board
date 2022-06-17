@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Post from "./post";
 
+import { useTracker } from "meteor/react-meteor-data";
+import { PostsCollection } from "../../api/PostsCollection";
+
 function PostList() {
   const [posts, setPosts] = useState([
     { email: "Someone@gmail.com", message: "Placeholder message" },
@@ -8,13 +11,16 @@ function PostList() {
   ]);
 
   //Get posts from api here
-  useEffect(() => {
+  const actualPosts = useTracker(() => {
+    let posts = PostsCollection.find().fetch();
     console.log(posts);
-  }, []);
+    return posts;
+  });
 
   return (
     <>
-      {posts.map((post) => (
+    
+      {actualPosts.map((post) => (
         <Post email={post.email} message={post.message} />
       ))}
     </>

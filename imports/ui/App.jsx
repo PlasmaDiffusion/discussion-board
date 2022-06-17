@@ -1,11 +1,16 @@
-import React from 'react';
-import { Hello } from './Hello.jsx';
-import { Info } from './Info.jsx';
+import React from "react";
+import LoginButton from "./components/login/loginButton";
+import PostForm from "./posts/postForm";
+import PostList from "./posts/postList";
 
-export const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello/>
-    <Info/>
-  </div>
-);
+function App() {
+  return (
+    <div>
+      <LoginButton />
+      <PostForm />
+      <PostList />
+    </div>
+  );
+}
+
+export default App;

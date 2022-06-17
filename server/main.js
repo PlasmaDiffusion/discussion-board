@@ -1,31 +1,20 @@
 import { Meteor } from 'meteor/meteor';
-import { LinksCollection } from '/imports/api/links';
+import { PostsCollection } from '/imports/api/PostsCollection';
+import { UsersCollection } from '/imports/api/UsersCollection';
 
-function insertLink({ title, url }) {
-  LinksCollection.insert({title, url, createdAt: new Date()});
-}
 
 Meteor.startup(() => {
-  // If the Links collection is empty, add some data.
-  if (LinksCollection.find().count() === 0) {
-    insertLink({
-      title: 'Do the Tutorial',
-      url: 'https://www.meteor.com/tutorials/react/creating-an-app'
-    });
 
-    insertLink({
-      title: 'Follow the Guide',
-      url: 'http://guide.meteor.com'
-    });
+  let emailId = "";
 
-    insertLink({
-      title: 'Read the Docs',
-      url: 'https://docs.meteor.com'
-    });
+  // If the collection is empty, add some data.
 
-    insertLink({
-      title: 'Discussions',
-      url: 'https://forums.meteor.com'
-    });
-  }
+
+  if (PostsCollection.find().count() === 0) {
+    emailId = UsersCollection.insert({email:"test@gmail.com"})
+    PostsCollection.insert({emailId, message: "Lorem ipsum dolor sit amet", createdAt: new Date()})
+
+}
+
+
 });
