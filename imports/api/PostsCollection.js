@@ -1,6 +1,8 @@
-import { createCollection } from 'meteor/quave:collections';
+import { createCollection } from "meteor/quave:collections";
 
-import SimpleSchema from 'simpl-schema';
+import SimpleSchema from "simpl-schema";
+
+import { UsersCollection } from "./UsersCollection";
 
 export const PostsSchema = new SimpleSchema({
   emailId: {
@@ -15,6 +17,11 @@ export const PostsSchema = new SimpleSchema({
 });
 
 export const PostsCollection = createCollection({
-  name: 'posts',
+  name: "posts",
   schema: PostsSchema,
+  helpers: {
+    email() {
+      return UsersCollection.findOne(this.emailId);
+    },
+  },
 });
