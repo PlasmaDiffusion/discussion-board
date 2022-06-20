@@ -2,6 +2,7 @@ import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
 
 import React, { useState } from "react";
+import "./styles.css"
 
 export const LoginForm = ({ signingUp = false }) => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ export const LoginForm = ({ signingUp = false }) => {
 
   return (
     <form onSubmit={submit} className="login-form">
-      <div>
+      <div className="inputField">
         <label htmlFor="username">Email</label>
 
         <input
@@ -34,7 +35,7 @@ export const LoginForm = ({ signingUp = false }) => {
         />
       </div>
 
-      <div>
+      <div className="inputField">
         <label htmlFor="password">Password</label>
         <input
           type="password"

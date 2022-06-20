@@ -16,6 +16,7 @@ function LoginPage() {
               setSigningUp(false);
             }}
             type="button"
+            className="signUpToggle"
           >
             Back to Login
           </button>
@@ -25,6 +26,7 @@ function LoginPage() {
               setSigningUp(true);
             }}
             type="button"
+            className="signUpToggle"
           >
             Don't have an account? Sign Up Instead
           </button>
