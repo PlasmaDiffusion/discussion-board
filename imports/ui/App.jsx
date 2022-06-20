@@ -1,14 +1,22 @@
 import React from "react";
-import LoginButton from "./components/login/loginButton";
+import Login from "./components/login/login";
 import PostForm from "./posts/postForm";
 import PostList from "./posts/postList";
+import { useTracker } from "meteor/react-meteor-data";
 
 function App() {
+  const user = useTracker(() => Meteor.user());
+
   return (
     <div>
-      <LoginButton />
-      <PostForm />
-      <PostList />
+      {!user ? (
+        <Login />
+      ) : (
+        <>
+          <PostForm />
+          <PostList />
+        </>
+      )}
     </div>
   );
 }
