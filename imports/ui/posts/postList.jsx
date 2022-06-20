@@ -6,7 +6,7 @@ import { PostsCollection } from "../../api/PostsCollection";
 
 function PostList() {
   const posts = useTracker(() => {
-    let fetchedPosts = PostsCollection.find().fetch();
+    let fetchedPosts = PostsCollection.find({},{sort: {createdAt: 1}}).fetch();
 
     return fetchedPosts;
   });
