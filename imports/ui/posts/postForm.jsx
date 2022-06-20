@@ -4,7 +4,7 @@ import { PostsCollection } from "../../api/PostsCollection";
 function PostForm({ user }) {
   const [message, setMessage] = useState("");
 
-  const createPost = ({ _id, message }) => {
+  const createPost = () => {
     PostsCollection.insert(_id, {
       $set: {
         emailId: user._id,
@@ -13,15 +13,14 @@ function PostForm({ user }) {
     });
   };
 
-  //TODO: Get logged in user/email and submit to server
   function OnSubmit(e) {
     e.preventDefault();
-    console.log(message);
+    createPost();
   }
 
   return (
     <div style={{ border: "1px solid black", padding: "10px" }}>
-      <h2>Submit a new post </h2>
+      <h2>Submit a New Post</h2>
       <br />
 
       <form onSubmit={OnSubmit}>
