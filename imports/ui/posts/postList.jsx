@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Post from "./post";
 
 import { useTracker } from "meteor/react-meteor-data";
-import { PostsCollection, PostsHelpers } from "../../api/PostsCollection";
+import {PostsCollection}  from "../../api/PostsCollection";
 
 function PostList() {
   const posts = useTracker(() => {
@@ -17,7 +17,6 @@ function PostList() {
       });
     });
 
-    console.log("returning");
     return fetchedPosts;
   });
 

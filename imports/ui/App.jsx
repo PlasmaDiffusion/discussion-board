@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./components/login/login";
+import LoginPage from "./components/login/loginPage";
 import PostForm from "./posts/postForm";
 import PostList from "./posts/postList";
 import { useTracker } from "meteor/react-meteor-data";
@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       {!user ? (
-        <Login />
+        <LoginPage />
       ) : (
         <>
           <PostForm user={user} />
