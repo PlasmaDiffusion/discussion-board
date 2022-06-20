@@ -22,6 +22,7 @@ function PostForm({ user }) {
   function OnSubmit(e) {
     e.preventDefault();
     createPost();
+    setMessage("");
   }
 
   function selectPostColor(e)
@@ -39,16 +40,17 @@ function PostForm({ user }) {
           onChange={(e) => {
             setMessage(e.target.value);
           }}
+          value={message}
         ></textarea>
 
         <br />
 
         <div>
           <label style={{ color: color }}>Post Color: </label>
-          <button className="coloredButton" onClick={selectPostColor} value="#000000" style={{ backgroundColor: "#000000" }} />
-          <button className="coloredButton" onClick={selectPostColor} value="#6495ED" style={{ backgroundColor: "#6495ED" }} />
-          <button className="coloredButton"onClick={selectPostColor} value="#8A2BE2" style={{ backgroundColor: "#8A2BE2" }} />
-          <button className="coloredButton" onClick={selectPostColor} value="#A52A2A" style={{ backgroundColor: "#A52A2A" }} />
+          <button type="button" className="coloredButton" onClick={selectPostColor} value="#000000" style={{ backgroundColor: "#000000" }} />
+          <button type="button" className="coloredButton" onClick={selectPostColor} value="#6495ED" style={{ backgroundColor: "#6495ED" }} />
+          <button type="button" className="coloredButton"onClick={selectPostColor} value="#8A2BE2" style={{ backgroundColor: "#8A2BE2" }} />
+          <button type="button" className="coloredButton" onClick={selectPostColor} value="#A52A2A" style={{ backgroundColor: "#A52A2A" }} />
         </div>
 
         <br />
