@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { PostsCollection } from "../../api/PostsCollection";
+import "./styles.css"
 
+// Submit a post with an email along with the date it was created, plus a bonus post color
 function PostForm({ user }) {
   const [message, setMessage] = useState("");
+  const [color, setColor] = useState("#000000");
 
   const createPost = () => {
     PostsCollection.insert(
       {
-          email: user.username,
-          message,
-          createdAt: new Date(),
+        email: user.username,
+        message,
+        createdAt: new Date(),
+        color: color,
       },
-      {validate: false}
+      { validate: false }
     );
   };
 
@@ -20,9 +24,14 @@ function PostForm({ user }) {
     createPost();
   }
 
+  function selectPostColor(e)
+  {
+    setColor(e.target.value);
+  }
+
   return (
     <div style={{ border: "1px solid black", padding: "10px" }}>
-      <h2>Submit a New Post</h2>
+      <h2 className="formTitle">Submit a New Post</h2>
       <br />
 
       <form onSubmit={OnSubmit}>
@@ -31,6 +40,16 @@ function PostForm({ user }) {
             setMessage(e.target.value);
           }}
         ></textarea>
+
+        <br />
+
+        <div>
+          <label style={{ color: color }}>Post Color: </label>
+          <button className="coloredButton" onClick={selectPostColor} value="#000000" style={{ backgroundColor: "#000000" }} />
+          <button className="coloredButton" onClick={selectPostColor} value="#6495ED" style={{ backgroundColor: "#6495ED" }} />
+          <button className="coloredButton"onClick={selectPostColor} value="#8A2BE2" style={{ backgroundColor: "#8A2BE2" }} />
+          <button className="coloredButton" onClick={selectPostColor} value="#A52A2A" style={{ backgroundColor: "#A52A2A" }} />
+        </div>
 
         <br />
         <input type="submit" />

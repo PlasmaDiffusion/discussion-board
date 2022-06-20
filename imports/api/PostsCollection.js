@@ -13,7 +13,9 @@ export const PostsSchema = new SimpleSchema({
   createdAt: {
     type: Date,
   },
-  
+  color: {
+    type: String,
+  },
 });
 
 export const PostsCollection = createCollection({

@@ -1,0 +1,19 @@
+.formTitle {
+  font-style: italic;
+}
+
+.coloredButton {
+  border-radius: 8px;
+  weight: 16px;
+  height: 16px;
+}
+
+.post {
+  margin: 4rem;
+  border-radius: 4px;
+}
+
+.post h3 {
+    padding-top: 10px;
+    margin: 0;
+}

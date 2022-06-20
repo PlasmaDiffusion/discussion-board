@@ -4,6 +4,7 @@ import Post from "./post";
 import { useTracker } from "meteor/react-meteor-data";
 import { PostsCollection } from "../../api/PostsCollection";
 
+//Fetches all posts and sort by date created (new at bottom)
 function PostList() {
   const posts = useTracker(() => {
     let fetchedPosts = PostsCollection.find({},{sort: {createdAt: 1}}).fetch();
@@ -14,7 +15,7 @@ function PostList() {
   return (
     <>
       {posts.map((post) => (
-        <Post email={post.email} message={post.message} />
+        <Post email={post.email} message={post.message} color={post.color || "black"} />
       ))}
     </>
   );
