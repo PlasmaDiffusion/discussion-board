@@ -21,11 +21,11 @@ export const LoginForm = ({ signingUp = false }) => {
   return (
     <form onSubmit={submit} className="login-form">
       <div>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Email</label>
 
         <input
           type="email"
-          placeholder="Username"
+          placeholder="Email"
           name="username"
           required
           onChange={(e) => setUsername(e.target.value)}
