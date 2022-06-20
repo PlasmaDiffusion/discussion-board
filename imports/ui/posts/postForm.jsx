@@ -1,7 +1,18 @@
 import React, { useState } from "react";
+import { PostsCollection } from "../../api/postsCollection";
 
-function PostForm() {
+function PostForm({user}) {
   const [message, setMessage] = useState("");
+
+
+  const createPost = ({ _id, message }) => {
+    PostsCollection.insert(_id, {
+      $set: {
+        emailId: user._id,
+        message: message
+      }
+    })
+  };
 
   //TODO: Get logged in user/email and submit to server
   function OnSubmit(e) {

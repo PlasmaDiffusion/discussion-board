@@ -13,7 +13,7 @@ function App() {
         <Login />
       ) : (
         <>
-          <PostForm />
+          <PostForm user={user} />
           <PostList />
         </>
       )}
