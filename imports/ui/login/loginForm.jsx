@@ -4,7 +4,7 @@ import { Accounts } from "meteor/accounts-base";
 import React, { useState } from "react";
 
 export const LoginForm = ({ signingUp = false }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submit = (e) => {
@@ -12,9 +12,11 @@ export const LoginForm = ({ signingUp = false }) => {
     e.preventDefault();
 
     if (signingUp) {
-      Accounts.createUser({ username, password, });
+      Accounts.createUser({ username: email, password, email: email });
     } else {
-      Meteor.loginWithPassword(username, password);
+      Meteor.loginWithPassword({ username: email }, password, function (error) {
+        if (error) alert(error);
+      });
     }
   };
 
@@ -28,7 +30,7 @@ export const LoginForm = ({ signingUp = false }) => {
           placeholder="Email"
           name="username"
           required
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
