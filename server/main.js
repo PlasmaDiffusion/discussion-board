@@ -7,8 +7,8 @@ const SEED_USERNAME = "meteorite";
 const SEED_PASSWORD = "password";
 
 Meteor.methods({
-  findUser(name) {
-    return Accounts.findUserByUsername(name);
+  findUser(id) {
+    return Meteor.users.findOne({_id:this.id})
   }
 });
 

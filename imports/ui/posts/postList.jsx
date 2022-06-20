@@ -14,7 +14,7 @@ function PostList() {
   return (
     <>
       {posts.map((post) => (
-        <Post emailId={post.emailId} message={post.message} />
+        <Post email={post.email} message={post.message} />
       ))}
     </>
   );

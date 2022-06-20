@@ -2,11 +2,9 @@ import { createCollection } from "meteor/quave:collections";
 
 import SimpleSchema from "simpl-schema";
 
-import { Accounts } from 'meteor/accounts-base';
-
 
 export const PostsSchema = new SimpleSchema({
-  emailId: {
+  email: {
     type: String,
   },
   message: {
@@ -15,14 +13,10 @@ export const PostsSchema = new SimpleSchema({
   createdAt: {
     type: Date,
   },
+  
 });
 
 export const PostsCollection = createCollection({
   name: "posts",
   schema: PostsSchema,
-  helpers: {
-    email() {
-      return Accounts.findUserByUsername(this.emailId);
-    },
-  },
 });

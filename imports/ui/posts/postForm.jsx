@@ -5,12 +5,14 @@ function PostForm({ user }) {
   const [message, setMessage] = useState("");
 
   const createPost = () => {
-    PostsCollection.insert(_id, {
-      $set: {
-        emailId: user._id,
-        message: message,
+    PostsCollection.insert(
+      {
+          email: user.username,
+          message,
+          createdAt: new Date(),
       },
-    });
+      {validate: false}
+    );
   };
 
   function OnSubmit(e) {
