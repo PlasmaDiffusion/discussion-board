@@ -9,6 +9,6 @@ export const UsersSchema = new SimpleSchema({
 });
 
 export const UsersCollection = createCollection({
-  name: 'users',
+  name: 'usersOld',
   schema: UsersSchema,
 });

@@ -5,16 +5,20 @@ import { useTracker } from "meteor/react-meteor-data";
 import { PostsCollection, PostsHelpers } from "../../api/PostsCollection";
 
 function PostList() {
-
   const posts = useTracker(() => {
     let fetchedPosts = PostsCollection.find().fetch();
 
-    // Populate email fields using collection helpers (back end uses the emailId to find this)
+    // Populate email fields using collection helpers (back end uses a post's emailId to find this)
     fetchedPosts.forEach((post) => {
-      post.email = post.email().email;
+      Meteor.call("findUser", post.emailId, function (error, result) {
+        // `result` is true if the user exists.
+        console.log(result.username);
+        post.email = result.username;
+      });
     });
 
-    return posts;
+    console.log("returning");
+    return fetchedPosts;
   });
 
   return (

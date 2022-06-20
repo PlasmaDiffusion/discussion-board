@@ -2,7 +2,8 @@ import { createCollection } from "meteor/quave:collections";
 
 import SimpleSchema from "simpl-schema";
 
-import { UsersCollection } from "./UsersCollection";
+import { Accounts } from 'meteor/accounts-base';
+
 
 export const PostsSchema = new SimpleSchema({
   emailId: {
@@ -21,7 +22,7 @@ export const PostsCollection = createCollection({
   schema: PostsSchema,
   helpers: {
     email() {
-      return UsersCollection.findOne(this.emailId);
+      return Accounts.findUserByUsername(this.emailId);
     },
   },
 });
