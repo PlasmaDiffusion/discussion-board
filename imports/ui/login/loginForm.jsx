@@ -4,6 +4,7 @@ import { Accounts } from "meteor/accounts-base";
 import React, { useState } from "react";
 import "./styles.css"
 
+// A log in form that can also be a sign up form, only differing with the submit button and event.
 export const LoginForm = ({ signingUp = false }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-//Shows post and gets user data based on the emailId provided
+//Shows a user's post, email and a color on the feed from provided props
 function Post({ email, message, color }) {
   return (
     <>
