@@ -1,8 +1,8 @@
+/* Form area at top of page  */
 .postForm {
   padding: 10px;
   margin: 0 4rem;
 }
-
 
 .postForm > textarea {
   width: 20rem;
@@ -10,10 +10,9 @@
   border-radius: 4px;
 }
 
-
 .postForm > input[type="submit"] {
   font-size: 1.5rem;
-  color:white;
+  color: white;
   background-color: #0046f6;
   border-radius: 4px;
   border: none;
@@ -36,12 +35,46 @@
   height: 16px;
 }
 
+/* Feed related  */
 .post {
   margin: 4rem;
   border-radius: 4px;
 }
 
 .post h3 {
-  padding-top: 10px;
+  padding: 10px 0 10px 10px;
   margin: 0;
+}
+
+.post p {
+  padding: 0 0 10px 10px;
+}
+
+@media only screen and (max-width: 480px) {
+  .postForm > textarea {
+    width: 15rem;
+    border-radius: 4px;
+  }
+
+  .formTitle {
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+  }
+  .postForm {
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .post {
+    margin: 1rem;
+    border-radius: 4px;
+  }
+
+  .post h3 {
+    font-size: 1rem;
+    overflow-wrap:break-word;
+  }
+
 }
