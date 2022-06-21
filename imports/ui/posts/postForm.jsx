@@ -36,13 +36,14 @@ function PostForm({ user }) {
       <h2 className="formTitle">Submit a New Post</h2>
       <br />
 
-      <form onSubmit={OnSubmit} className="postForm">
+      <form onSubmit={OnSubmit} className="postForm" >
         <textarea
           
           onChange={(e) => {
             setMessage(e.target.value);
           }}
           value={message}
+          style={{border: `3px solid ${color}`}}
         ></textarea>
 
         <br />

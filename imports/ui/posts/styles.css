@@ -1,18 +1,31 @@
 .postForm {
   padding: 10px;
-  margin: 4rem;
+  margin: 0 4rem;
 }
 
 
 .postForm > textarea {
   width: 20rem;
   height: 5rem;
-
+  border-radius: 4px;
 }
 
 
+.postForm > input[type="submit"] {
+  font-size: 1.5rem;
+  color:white;
+  background-color: #0046f6;
+  border-radius: 4px;
+  border: none;
+  padding-top: 0;
+}
+
+.postForm > input[type="submit"]:hover {
+  background-color: #002480;
+}
+
 .formTitle {
-  font-style: italic;
+  font-style: bold;
   margin-left: 4rem;
   margin-bottom: 0;
 }
