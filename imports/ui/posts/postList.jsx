@@ -7,7 +7,7 @@ import { PostsCollection } from "../../api/PostsCollection";
 //AKA the feed; Fetches all posts and sort by date created (new at bottom)
 function PostList() {
   const posts = useTracker(() => {
-    let fetchedPosts = PostsCollection.find({},{sort: {createdAt: 1}}).fetch();
+    let fetchedPosts = PostsCollection.find({},{sort: {createdAt: -1}}).fetch();
 
     return fetchedPosts;
   });
