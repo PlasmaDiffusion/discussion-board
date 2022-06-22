@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 //Shows a user's post, email and a color on the feed from provided props
 function Post({ email, message, color }) {
-  
+
   // Check for line breaks, then split it in an array to be output properly
   const messageWithLineBreaks = () => {
     if (!message) return message;

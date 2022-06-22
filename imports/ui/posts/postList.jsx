@@ -4,10 +4,10 @@ import Post from "./post";
 import { useTracker } from "meteor/react-meteor-data";
 import { PostsCollection } from "../../api/PostsCollection";
 
-//AKA the feed; Fetches all posts and sort by date created (new at bottom)
+//AKA the feed; Fetches all posts and sort by date created (Assuming new comments go at the bototm)
 function PostList() {
   const posts = useTracker(() => {
-    let fetchedPosts = PostsCollection.find({},{sort: {createdAt: -1}}).fetch();
+    let fetchedPosts = PostsCollection.find({},{sort: {createdAt: 1}}).fetch();
 
     return fetchedPosts;
   });
